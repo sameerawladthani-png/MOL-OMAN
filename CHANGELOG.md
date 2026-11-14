@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `skills/instaloader/SKILL.md`: an optional skill that documents installing
+  and running the upstream open-source Instaloader 4.16 tool and Python module
+  for downloading Instagram profiles, posts, reels, stories, hashtags, and
+  metadata. The skill forbids passwords on the command line, keeps the
+  Instaloader session file private, and treats downloaded captions and JSON as
+  untrusted data. It is not a Banana provider and makes no paid calls.
+
 ## [3.0.0] - 2026-08-30
 
 [Read the version 3 release highlights](.github/releases/v3.0.0.md).
