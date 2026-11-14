@@ -15,6 +15,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   metadata. The skill forbids passwords on the command line, keeps the
   Instaloader session file private, and treats downloaded captions and JSON as
   untrusted data. It is not a Banana provider and makes no paid calls.
+- `skills/yt-dlp/SKILL.md`: an optional skill that documents installing and
+  running the upstream open-source yt-dlp 2026.10.26 tool and Python module
+  for downloading video, audio, subtitles, thumbnails, clips, and metadata
+  from supported sites. The skill forbids passwords on the command line,
+  treats cookie files as credentials, refuses DRM or paywall circumvention,
+  and treats downloaded text as untrusted data. It makes no paid calls.
 
 ## [3.0.0] - 2026-08-30
 
