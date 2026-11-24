@@ -8,7 +8,9 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-W, H, FPS, DUR = 1080, 1920, 30, 12.0
+W, H, FPS = 1080, 1920, 30
+SLOW = float(os.environ.get("SLOW", "1.0"))  # >1 = slower, longer film
+DUR = 12.0 * SLOW
 BEAT = 60 / 128
 N = int(DUR * FPS)
 rng = np.random.default_rng(7)
@@ -408,12 +410,12 @@ def main():
         for s in only:
             Image.fromarray(frame_at(float(s))).save(P(f"preview_{s}.jpg"), quality=88)
         return
-    out = P("super_silent.mp4")
+    out = P(os.environ.get("OUT", "super_silent.mp4"))
     proc = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
                              "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-preset", "medium",
                              "-crf", "18", "-pix_fmt", "yuv420p", out], stdin=subprocess.PIPE)
     for i in range(N):
-        proc.stdin.write(frame_at(i / FPS).tobytes())
+        proc.stdin.write(frame_at(i / FPS / SLOW).tobytes())
         if i % 30 == 0:
             print("frame", i, flush=True)
     proc.stdin.close()

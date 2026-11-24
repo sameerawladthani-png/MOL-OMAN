@@ -4,7 +4,8 @@ import wave
 
 import numpy as np
 
-SR, DUR, BEAT = 44100, 12.0, 60 / 128
+S = float(os.environ.get("SLOW", "1.0"))  # time scale
+SR, DUR, BEAT = 44100, 12.0 * S, 60 / 128 * S
 n = int(SR * DUR)
 t = np.arange(n) / SR
 rng = np.random.default_rng(1)
@@ -44,19 +45,19 @@ for k in range(7):
         f = hz(m)
         pad += e * (np.sin(2 * np.pi * f * t) + 0.3 * np.sin(2 * np.pi * f * 1.003 * t) + 0.15 * np.sin(4 * np.pi * f * t))
 pad = lowpass(pad, 12) * 0.05
-pad *= np.clip(t / 1.5, 0, 1)
+pad *= np.clip(t / (1.5 * S), 0, 1)
 L += pad
 R += np.roll(pad, 300)
 
 # sub kick on every beat from 2.34s (after logo), half-time before
 for b in range(26):
     bt = b * BEAT
-    if bt < 2.3 and b % 2:
+    if bt < 2.3 * S and b % 2:
         continue
     seg_t = np.arange(int(0.45 * SR)) / SR
     f = 45 + 70 * np.exp(-seg_t * 25)
     k = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-seg_t * 7)
-    place(k, bt, 0.55 if bt >= 2.3 else 0.35)
+    place(k, bt, 0.55 if bt >= 2.3 * S else 0.35)
 
 # soft ticks on off-beats in the notes section
 for b in range(9, 22):
@@ -77,9 +78,9 @@ def shimmer(t0, length, gain):
     place(np.roll(s, 900), t0, gain, -0.2)
 
 
-shimmer(0.15, 2.0, 0.035)
-shimmer(7.45, 1.2, 0.03)
-shimmer(10.95, 1.0, 0.03)
+shimmer(0.15 * S, 2.0 * S, 0.035)
+shimmer(7.45 * S, 1.2 * S, 0.03)
+shimmer(10.95 * S, 1.0 * S, 0.03)
 
 
 # whooshes at transitions
@@ -94,31 +95,31 @@ def whoosh(t0, length=0.6, gain=0.25):
 
 
 for tw in (2.3, 4.2, 7.02, 10.45):
-    whoosh(tw)
+    whoosh(tw * S, 0.6 * S)
 
 # atomizer "psst" on the cap shot
 nz = rng.standard_normal(int(0.35 * SR))
 nz = nz - lowpass(nz, 3)
-place(nz * np.exp(-np.arange(len(nz)) / SR * 6) * np.clip(np.arange(len(nz)) / SR / 0.02, 0, 1), 2.55, 0.12)
+place(nz * np.exp(-np.arange(len(nz)) / SR * 6) * np.clip(np.arange(len(nz)) / SR / 0.02, 0, 1), 2.55 * S, 0.12)
 
 # riser into the poster reveal + impact
-rl = 1.4
+rl = 1.4 * S
 tt = np.arange(int(rl * SR)) / SR
 rs = rng.standard_normal(len(tt))
 rs = lowpass(rs, 4) * (tt / rl) ** 2 + 0.3 * np.sin(2 * np.pi * (200 + 600 * (tt / rl) ** 2) * tt) * (tt / rl) ** 2
-place(rs, 8.62 - rl, 0.18)
-seg_t = np.arange(int(1.6 * SR)) / SR
-boom = np.sin(2 * np.pi * np.cumsum(38 + 60 * np.exp(-seg_t * 8)) / SR) * np.exp(-seg_t * 2.2)
+place(rs, 8.62 * S - rl, 0.18)
+seg_t = np.arange(int(1.6 * S * SR)) / SR
+boom = np.sin(2 * np.pi * np.cumsum(38 + 60 * np.exp(-seg_t * 8)) / SR) * np.exp(-seg_t * 2.2 / S)
 boom += lowpass(rng.standard_normal(len(seg_t)), 20) * np.exp(-seg_t * 6) * 0.6
-place(boom, 8.6, 0.8)
+place(boom, 8.6 * S, 0.8)
 
 # master: fade out, soft clip, normalise
-fade = np.clip((DUR - t) / 0.8, 0, 1)
+fade = np.clip((DUR - t) / (0.8 * S), 0, 1)
 mix = np.stack([L, R], 1) * fade[:, None]
 mix = np.tanh(mix * 1.4)
 mix = mix / np.abs(mix).max() * 0.89
 pcm = (mix * 32767).astype(np.int16)
-with wave.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "score.wav"), "wb") as w:
+with wave.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), os.environ.get("AOUT", "score.wav")), "wb") as w:
     w.setnchannels(2)
     w.setsampwidth(2)
     w.setframerate(SR)
