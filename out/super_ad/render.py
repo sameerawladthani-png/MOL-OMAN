@@ -47,7 +47,7 @@ def seg(t, a, b):
 
 # ---------------------------------------------------------------- assets
 poster = Image.open(P("poster.png")).convert("RGB")
-logo = Image.open(P("logo_mask.png")).convert("L")  # 792x1116, circle centre ~ (396,410)
+logo = Image.open(P("logo_official.png")).convert("L")  # official O&B Land line logo (from brand PDF)
 
 
 def fit_cover(img, w, h, scale=1.0, cx=0.5, cy=0.5):
@@ -172,14 +172,14 @@ def logo_layer(t, size, reveal, glint_p=None, burst=0.0):
     lw = int(size)
     lh = int(lw * logo.height / logo.width)
     m = arr(logo.resize((lw, lh), Image.LANCZOS))
-    ccx, ccy = 396 / 792 * lw, 410 / 1116 * lh
+    ccx, ccy = 0.5 * lw, 0.375 * lh
     y, x = np.mgrid[0:lh, 0:lw].astype(np.float32)
     ang = (np.arctan2(x - ccx, -(y - ccy)) / (2 * math.pi)) % 1.0  # 0 at top, clockwise
-    circle_zone = y < 0.69 * lh
+    circle_zone = y < 0.70 * lh
     rc = ease(seg(reveal, 0.0, 0.72))
     rl = ease(seg(reveal, 0.45, 1.0))
     soft = 0.035
-    vis_c = np.clip((rc - ang) / soft, 0, 1)
+    vis_c = np.clip((rc * 1.04 - ang) / soft, 0, 1)
     vis_l = np.clip((rl * 1.1 - x / lw) / 0.06, 0, 1)
     vis = np.where(circle_zone, vis_c, vis_l)
     a = m * vis
@@ -198,12 +198,12 @@ def logo_layer(t, size, reveal, glint_p=None, burst=0.0):
     spark = None
     if 0 < rc < 1:
         th = rc * 2 * math.pi
-        rad = 0.46 * lw
+        rad = 0.485 * lw
         sx = ox + ccx + math.sin(th) * rad
         sy = oy + ccy - math.cos(th) * rad
         spark = (sx, sy)
     elif 0 < rl < 1:
-        spark = (ox + rl * 1.1 * lw, oy + 0.86 * lh)
+        spark = (ox + rl * 1.1 * lw, oy + 0.87 * lh)
     return full_rgb, full_a, glow, spark, (ox + ccx, oy + ccy)
 
 
@@ -312,7 +312,7 @@ def frame_at(t):
         f = add(f, spark_layer(spk, 1.0))
         f = add(f, embers(t, 0.5, (ctr[0], ctr[1], burst) if burst > 0 else None))
         ta = ease(seg(t, 1.35, 1.9)) * fade
-        f = composite_text(f, [("O&B LAND", F_CIN(58), W / 2, H * 0.44 + 400, (240, 210, 150), ta, 18, False)], glow=0.4 * ta)
+        f = composite_text(f, [("O&B LAND", F_CIN(58), W / 2, H * 0.44 + 460, (240, 210, 150), ta, 18, False)], glow=0.4 * ta)
 
     # S2 macro cap 2.35 - 4.2
     if 2.2 < t < 4.45:
@@ -388,9 +388,10 @@ def frame_at(t):
         tb = ease(seg(t, 11.0, 11.4))
         cy_ = H * 0.44
         f = composite_text(f, [
-            ("O&B LAND", F_CIN(64), W / 2, cy_ + 330, (240, 210, 150), ta, 20, False),
-            ("حضورك يبدأ من رائحتك.", F_AR_B(66), W / 2, cy_ + 470, (245, 245, 255), tb, 0, True),
-            ("SUPER  ·  EAU DE PARFUM  ·  100ML", F_CIN(34), W / 2, cy_ + 570, (205, 180, 130), tb, 6, False),
+            ("OUD & BEAUTY LAND", F_CIN(50), W / 2, cy_ + 330, (240, 210, 150), ta, 20, False),
+            ("أرض العود والجمال", F_AR_M(44), W / 2, cy_ + 405, (225, 195, 135), ta, 0, True),
+            ("حضورك يبدأ من رائحتك.", F_AR_B(66), W / 2, cy_ + 530, (245, 245, 255), tb, 0, True),
+            ("SUPER  ·  EAU DE PARFUM  ·  100ML", F_CIN(34), W / 2, cy_ + 630, (205, 180, 130), tb, 6, False),
         ], glow=0.3 * ta)
         f = f * (1 - ease(seg(t, 11.75, 12.0)))
 
