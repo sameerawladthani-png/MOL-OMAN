@@ -1,0 +1,20 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 360
+PlayResY: 640
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: huazi_1,Sans,343,&H009C8BC1,&H0000FFFF,&H00735F90,&H00000000,0,0,0,0,100,100,0,-1,1,1,0,5,0,0,0,1
+Style: huazi_2,Sans,27,&H00D0B7DA,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,1,1,0,0,5,0,0,0,1
+Style: label_3,Sans,12,&H00A799BE,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,-0,1,0,0,5,0,0,0,1
+Style: label_4,Sans,12,&H00D7C4E5,&H0000FFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,-0,1,0,0,5,0,0,0,1
+Style: label_5,Sans,22,&H00664E6C,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,-0,1,0,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:06.60,0:00:07.30,huazi_1,,0,0,0,,{\pos(179,335)\fad(200,200)}SO
+Dialogue: 1,0:00:07.50,0:00:10.00,huazi_2,,0,0,0,,{\pos(184,361)}Lady Bloom
+Dialogue: 1,0:00:07.50,0:00:09.60,label_3,,0,0,0,,{\pos(183,412)}VIOLET BLOSSOM ELIXIR
+Dialogue: 1,0:00:08.00,0:00:09.60,label_4,,0,0,0,,{\pos(181,422)}EAL DE PARFUM
+Dialogue: 1,0:00:08.00,0:00:10.00,label_5,,0,0,0,,{\pos(180,563)}Where Elegance Blooms

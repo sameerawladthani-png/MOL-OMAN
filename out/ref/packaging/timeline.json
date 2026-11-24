@@ -1,0 +1,219 @@
+{
+  "text": [
+    {
+      "id": "text_001",
+      "kind": "huazi",
+      "kind_zh": "styled text",
+      "t0": 4.5,
+      "t1": 4.6,
+      "text": "96",
+      "lines": [
+        "96"
+      ],
+      "bbox": [
+        0.0,
+        0.2625,
+        0.9972,
+        0.5859
+      ],
+      "style": {
+        "fill_name": "pink",
+        "fill": "#bb90ad",
+        "stroke_name": "white",
+        "stroke": "#e7c8da",
+        "stroke_ratio": 0.003,
+        "weight": 0.02
+      },
+      "style_zh": "pink text, white outline, line height 58.6% (about 375px)",
+      "anim_in": {
+        "kind": "cut",
+        "kind_zh": "hard in"
+      },
+      "anim_out": {
+        "kind": "cut_out",
+        "kind_zh": "hard out"
+      },
+      "mid_motion": null,
+      "follows": null,
+      "part_of_picture": false,
+      "anchor": null,
+      "persistent": null
+    },
+    {
+      "id": "text_002",
+      "kind": "huazi",
+      "kind_zh": "styled text",
+      "t0": 6.6,
+      "t1": 7.3,
+      "text": "SO",
+      "lines": [
+        "SO"
+      ],
+      "bbox": [
+        0.0,
+        0.0469,
+        0.9972,
+        0.9516
+      ],
+      "style": {
+        "fill_name": "red",
+        "fill": "#c18b9c",
+        "stroke_name": "grey",
+        "stroke": "#905f73",
+        "stroke_ratio": 0.002,
+        "weight": 0.009
+      },
+      "style_zh": "red text, grey outline, line height 95.2% (about 609px)",
+      "anim_in": {
+        "kind": "cut",
+        "kind_zh": "hard in"
+      },
+      "anim_out": {
+        "kind": "fade_out",
+        "kind_zh": "fade out"
+      },
+      "mid_motion": null,
+      "follows": null,
+      "part_of_picture": false,
+      "anchor": null,
+      "persistent": null
+    },
+    {
+      "id": "text_003",
+      "kind": "huazi",
+      "kind_zh": "styled text",
+      "t0": 7.5,
+      "t1": 10.0,
+      "text": "Lady Bloom",
+      "lines": [
+        "Lady Bloom"
+      ],
+      "bbox": [
+        0.3111,
+        0.5281,
+        0.4,
+        0.0704
+      ],
+      "style": {
+        "fill_name": "pink",
+        "fill": "#dab7d0",
+        "weight": 0.103
+      },
+      "style_zh": "pink text, line height 5.8% (about 37px)",
+      "anim_in": {
+        "kind": "cut",
+        "kind_zh": "hard in"
+      },
+      "anim_out": null,
+      "mid_motion": true,
+      "follows": null,
+      "part_of_picture": false,
+      "anchor": null,
+      "persistent": null
+    },
+    {
+      "id": "text_004",
+      "kind": "label",
+      "kind_zh": "text label",
+      "t0": 7.5,
+      "t1": 9.6,
+      "text": "VIOLET BLOSSOM ELIXIR",
+      "lines": [
+        "VIOLET BLOSSOM ELIXIR"
+      ],
+      "bbox": [
+        0.3278,
+        0.6266,
+        0.3611,
+        0.0344
+      ],
+      "style": {
+        "fill_name": "pink",
+        "fill": "#be99a7",
+        "weight": 0.147
+      },
+      "style_zh": "pink text, line height 2.0% (about 13px)",
+      "anim_in": {
+        "kind": "cut",
+        "kind_zh": "hard in"
+      },
+      "anim_out": null,
+      "mid_motion": true,
+      "follows": null,
+      "part_of_picture": false,
+      "anchor": null,
+      "persistent": null
+    },
+    {
+      "id": "text_005",
+      "kind": "label",
+      "kind_zh": "text label",
+      "t0": 8.0,
+      "t1": 9.6,
+      "text": "EAL DE PARFUM",
+      "lines": [
+        "EAL DE PARFUM"
+      ],
+      "bbox": [
+        0.4028,
+        0.6531,
+        0.2,
+        0.0141
+      ],
+      "style": {
+        "fill_name": "white",
+        "fill": "#e5c4d7",
+        "weight": 0.212
+      },
+      "style_zh": "white text, bold, line height 1.4% (about 9px)",
+      "anim_in": {
+        "kind": "cut",
+        "kind_zh": "hard in"
+      },
+      "anim_out": {
+        "kind": "cut_out",
+        "kind_zh": "hard out"
+      },
+      "mid_motion": true,
+      "follows": null,
+      "part_of_picture": false,
+      "anchor": null,
+      "persistent": null
+    },
+    {
+      "id": "text_006",
+      "kind": "label",
+      "kind_zh": "text label",
+      "t0": 8.0,
+      "t1": 10.0,
+      "text": "Where Elegance Blooms",
+      "lines": [
+        "Where Elegance Blooms"
+      ],
+      "bbox": [
+        0.1639,
+        0.8469,
+        0.6722,
+        0.0641
+      ],
+      "style": {
+        "fill_name": "grey",
+        "fill": "#6c4e66",
+        "weight": 0.085
+      },
+      "style_zh": "grey text, line height 6.3% (about 41px)",
+      "anim_in": {
+        "kind": "slide",
+        "kind_zh": "slide in"
+      },
+      "anim_out": null,
+      "mid_motion": null,
+      "follows": null,
+      "part_of_picture": false,
+      "anchor": null,
+      "persistent": null
+    }
+  ],
+  "stickers": [],
+  "sfx": []
+}

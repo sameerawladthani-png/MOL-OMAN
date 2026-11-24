@@ -1,0 +1,158 @@
+{
+ "by": "",
+ "shots": [
+  {
+   "id": "shot_001",
+   "time": "0.00-10.04",
+   "label_probs": {
+    "ai_video": 0.92,
+    "cg_3d": 0.06,
+    "live_action": 0.02
+   },
+   "image_source": "ai",
+   "evidence": [
+    "Continuous morph chain impossible in camera: spray mist turns into crystal flower, then butterflies, then light trails that assemble the bottle",
+    "Glass flower/butterfly geometry drifts frame to frame (AI temporal morphing), not stable CG meshes",
+    "Label text on bottle resolves progressively from blur (typical AI end-frame / image-to-video)"
+   ],
+   "description": "One 10 s AI take: Arabic title card 'إعلان عطر / AI Perfume Ad' over glowing bottle sketch, macro of crystal flower cap and gold atomizer spraying pink mist, mist swirls into a crystal flower, then crystal butterflies, light ribbons draw a wireframe bottle that solidifies into the Lady Bloom packshot with tagline 'Where Elegance Blooms'.",
+   "narrative": {
+    "role": "hook",
+    "point": "Scent made visible: spray becomes flower, butterfly, then the bottle itself, ending on brand name"
+   },
+   "embedded_assets": [],
+   "ai_edits": [],
+   "same_clip_as": null,
+   "replication": {
+    "image_prompt": "",
+    "video_prompt": "",
+    "video_prompt_en": "",
+    "motion_prompt": "",
+    "motion_prompt_en": ""
+   },
+   "aspects": {
+    "framing": {
+     "shot_size": "",
+     "camera_angle": "",
+     "composition": ""
+    },
+    "camera": {
+     "camera_support": "",
+     "lens": "",
+     "speed": ""
+    },
+    "lighting": {
+     "location": "",
+     "key_light": "",
+     "light_quality": "",
+     "fill_light": "",
+     "rim_light": "",
+     "catchlight": "",
+     "practicals": "",
+     "color_temp": "",
+     "lighting_setup": ""
+    },
+    "grade": {
+     "color_grade": ""
+    }
+   },
+   "performance": {
+    "who": "",
+    "emotion": "",
+    "intensity": "",
+    "face": "",
+    "body": "",
+    "arc": [],
+    "voice": "",
+    "key": false,
+    "move": "",
+    "movers": 0,
+    "full_body": null,
+    "backdrop": "",
+    "en": ""
+   }
+  }
+ ],
+ "aspects": {
+  "camera": {
+   "setups": "",
+   "gear_guess": ""
+  },
+  "lighting": {
+   "lighting_overall": ""
+  },
+  "grade": {
+   "grade_overall": ""
+  },
+  "editing": {
+   "editing": ""
+  },
+  "format": {
+   "format": ""
+  }
+ },
+ "story": {
+  "summary": "AI perfume teaser where the scent's spray transforms into crystal flower and butterflies and then reassembles as the bottle packshot.",
+  "hook": "0-1.5s: macro on the cap and atomizer firing a glittering spray",
+  "highlights": [
+   "1.5-3s spray morphs into a crystal flower: makes an invisible scent visible",
+   "3-6s crystal butterflies: brand symbol in motion",
+   "6-8s light lines draw the bottle and it solidifies: product reveal as payoff",
+   "8-10s clean packshot + script tagline: brand recall"
+  ]
+ },
+ "cast": {
+  "style": "Lilac and gold, crystal glass, bokeh, particle glitter, AI magical realism",
+  "characters": [],
+  "scenes": [
+   {
+    "id": "S1",
+    "where": "abstract dark violet bokeh space, reflective floor at end",
+    "when": "",
+    "look": "lilac/gold glitter",
+    "shots": [
+     "shot_001"
+    ]
+   }
+  ],
+  "props": [
+   {
+    "name": "Lady Bloom bottle",
+    "note": "round crystal bottle, crystal lotus cap, gold collar",
+    "shots": [
+     "shot_001"
+    ]
+   }
+  ]
+ },
+ "packaging": {
+  "stickers": [],
+  "text": [
+   {
+    "id": "text_001",
+    "kind": "false"
+   },
+   {
+    "id": "text_002",
+    "kind": "false"
+   },
+   {
+    "id": "text_003",
+    "kind": ""
+   },
+   {
+    "id": "text_004",
+    "kind": ""
+   },
+   {
+    "id": "text_005",
+    "kind": ""
+   },
+   {
+    "id": "text_006",
+    "kind": ""
+   }
+  ],
+  "missed": []
+ }
+}
