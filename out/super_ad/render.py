@@ -329,7 +329,7 @@ def frame_at(t):
     # S3 notes 4.2 - 7.05
     if 4.1 < t < 7.3:
         bb = crop_scene(BOTTLE_BOX, 4.2, 7.3, t, 1.0, 1.12)
-        bb = arr(Image.fromarray((bb * 255).astype("uint8")).filter(ImageFilter.GaussianBlur(12))) * 0.42
+        bb = arr(Image.fromarray((bb * 255).astype("uint8")).filter(ImageFilter.GaussianBlur(14))) * 0.24
         a = ease(seg(t, 4.15, 4.45)) * (1 - ease(seg(t, 6.95, 7.3)))
         f = over(f, bb + smoke(t, 0.6), a)
         f = add(f, embers(t * 1.2, 1.0), a)
